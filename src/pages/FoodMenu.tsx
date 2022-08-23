@@ -1,4 +1,4 @@
 function FoodMenu() {
-  return <div>Food Menu</div>;
+  return <div>Menu</div>;
 }
 export default FoodMenu;
