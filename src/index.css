@@ -17,7 +17,11 @@ a {
   color: unset;
 }
 
-h5
- {
+h5 {
   font-family: "RocknRoll One", sans-serif !important;
+}
+
+
+section {
+  padding: 60px 0px;
 }

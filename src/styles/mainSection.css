@@ -1,0 +1,60 @@
+.mainSection__content {
+    padding-top: 70px;
+}
+
+.mainSection__title {
+    font-size: 2.5rem;
+    line-height: 55px;
+}
+
+.mainSection__title span {
+    color: #df2020
+}
+
+.mainSection__content p {
+    font-size: 1rem;
+    line-height: 30px;
+    color: #777;
+}
+
+.mainSection__btns button {
+    border: none;
+    outline: none;
+    padding: 7px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.order__btn {
+    background: #df2020;
+    color: #fff;
+    transition: 0.3s;
+}
+
+.order__btn:hover {
+    background: #212245;
+}
+
+.menu-btn {
+    background: transparent;
+    border: 1px solid #df2020 !important;
+}
+
+.menu-btn a {
+    color: #df2020;
+}
+
+.mainSection__service p {
+    color: #212245;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.checkout__icon i {
+    padding: 5px;
+    background: #df2020;
+    color: #fff;
+    border-radius: 50%;
+    font-weight: 500 !important;
+}
