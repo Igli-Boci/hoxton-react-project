@@ -2,8 +2,9 @@ import React, { useRef } from "react";
 
 import { Container } from "reactstrap";
 import { NavLink, Link } from "react-router-dom";
-
 import "../../styles/header.css";
+
+import logo from "../../assets/images/the-bite-logo.png";
 
 const navlinks = [
   {
@@ -32,7 +33,7 @@ function Header() {
       <Container>
         <div className="nav__wrapper d-flex align-items-center justify-content-between">
           <div className="logo">
-            <h5>Grab A Bite</h5>
+            <img src={logo} alt="logo" />
           </div>
 
           <div className="navigation" ref={menu} onClick={toggleMenu}>
