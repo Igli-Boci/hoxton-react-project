@@ -5,6 +5,8 @@ import "../styles/home.css";
 import "../styles/mainSection.css";
 
 import mainImage from "../assets/images/main-image.png";
+import { Product } from "../types";
+import { useEffect, useState } from "react";
 
 const featuresData = [
   {
@@ -25,6 +27,15 @@ const featuresData = [
 ];
 
 function Home() {
+  const [products, setProducts] = useState<Product[]>([]);
+
+  useEffect(() => {
+    fetch("http://localhost:8000/products")
+      .then((resp) => resp.json())
+      .then((productsFromServer) => setProducts(productsFromServer));
+  }, []);
+
+  if (products === null) return <h2>Loading...</h2>;
   return (
     <>
       <section>
@@ -107,6 +118,36 @@ function Home() {
                 <div className="feature__item text-center px-5 py-3">
                   <h5 className="fw-bold mb-3">{item.title}</h5>
                   <p>{item.description}</p>
+                </div>
+              </Col>
+            ))}
+          </Row>
+        </Container>
+      </section>
+
+      <section>
+        <Container>
+          <Row>
+            {products.map((products) => (
+              <Col lg="3" md="4" className="mt-5">
+                <div className="product__item">
+                  <div className="product__img">
+                    <img
+                      src={products.image}
+                      alt="product-img"
+                      className="w-50"
+                    />
+                  </div>
+
+                  <div className="product__content">
+                    <h5>
+                      <Link to={`/menu/${products.id}`}>{products.title}</Link>
+                    </h5>
+                    <div className="d-flex align-items-center justify-content-between">
+                      <span className="product__price">€{products.price}</span>
+                      <button className="addTOCart__btn">Add to Cart</button>
+                    </div>
+                  </div>
                 </div>
               </Col>
             ))}
