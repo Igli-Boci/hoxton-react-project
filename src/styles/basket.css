@@ -1,0 +1,13 @@
+.basket__price {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #df2020;
+}
+
+.basketItem__title {
+    display: flex;
+    align-items: flex-end;
+    color: #212245;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
