@@ -14,57 +14,92 @@
     color: #777;
   }
 
-  /* Product items */
-
-  .product__item {
-    border: 1px solid #d77676;
-    text-align: center;
-    padding: 30px;
-    cursor: pointer;
-  }
-  
-  .product__img {
-    margin-bottom: 20px;
-    transition: 0.4s;
-  }
-  
-  .product__img:hover {
-    transform: scale(1.2);
-  }
-  
-  .product__content h5 a {
-    color: #212245;
-    font-size: 1rem;
-  }
-  
-  .product__content h5 {
-    margin-bottom: 30px;
-  }
-  
-  .product__price {
-    font-weight: 600;
-    font-size: 1.2rem;
-    color: #df2020;
-  }
-  
-  .addTOCart__btn {
-    border: none;
-    padding: 7px 25px;
+  .food__category {
     background: #df2020;
-    color: #fff;
-    border-radius: 5px;
-    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px 0px;
+    border-radius: 8px;
   }
   
-  @media only screen and (max-width: 992px) {
-    .product__content h5 a {
+  .food__category button {
+    border: none;
+    outline: none;
+    padding: 7px 20px;
+    background: transparent;
+    color: #fff;
+  }
+
+  .food__category button img {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .foodBtnActive {
+    background: #fff !important;
+    border-radius: 5px;
+    color: #df2020 !important;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .mainSection__content h5 {
+      font-size: 1rem;
+    }
+  
+    .mainSection__content p {
       font-size: 0.8rem;
+      line-height: 25px;
     }
-    .product__item {
-      padding: 20px;
+  
+    .mainSection__title {
+      font-size: 1.5rem;
+      line-height: 40px;
     }
-    .addTOCart__btn {
+  
+    .mainSection__btns button {
       padding: 5px 15px;
       font-size: 0.7rem;
+    }
+  
+    .mainSection__service p {
+      font-size: 0.7rem !important;
+    }
+  
+    .feature__item h5 {
+      font-size: 0.9rem;
+    }
+  
+    .feature__item p {
+      font-size: 0.8rem;
+      margin-bottom: 0;
+    }
+  
+    .feature__subtitle {
+      font-size: 1rem;
+    }
+    .feature__text {
+      font-size: 0.8rem;
+      margin-bottom: 0;
+    }
+  
+    .food__category {
+      padding: 15px;
+    }
+    .food__category button {
+      padding: 5px 15px;
+      font-size: 0.7rem;
+    }
+  }
+  @media only screen and (max-width: 576px) {
+    .mainSection__content {
+      text-align: center;
+    }
+  
+    .mainSection__btns {
+      justify-content: center;
+    }
+  
+    .mainSection__service {
+      justify-content: center;
     }
   }
