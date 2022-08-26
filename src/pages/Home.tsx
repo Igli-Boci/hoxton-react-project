@@ -8,6 +8,10 @@ import mainImage from "../assets/images/main-image.png";
 import { Product } from "../types";
 import { useEffect, useState } from "react";
 
+import pizza from "../assets/images/pizza.png";
+import burger from "../assets/images/hamburger.png";
+import ProductCard from "../components/ProductCard/ProductCard";
+
 const featuresData = [
   {
     title: "Fast Delivery",
@@ -28,6 +32,30 @@ const featuresData = [
 
 function Home() {
   const [products, setProducts] = useState<Product[]>([]);
+  const [category, setCategory] = useState("ALL");
+  const [allProducts, setAllProducts] = useState(products);
+
+  useEffect(() => {
+    if (category === "ALL") {
+      setAllProducts(products);
+    }
+
+    if (category === "BURGER") {
+      const filteredProducts = products.filter(
+        (item) => item.category === "Burger"
+      );
+
+      setAllProducts(filteredProducts);
+    }
+
+    if (category === "PIZZA") {
+      const filteredProducts = products.filter(
+        (item) => item.category === "Pizza"
+      );
+
+      setAllProducts(filteredProducts);
+    }
+  }, [category]);
 
   useEffect(() => {
     fetch("http://localhost:8000/products")
@@ -128,27 +156,50 @@ function Home() {
       <section>
         <Container>
           <Row>
-            {products.map((products) => (
-              <Col lg="3" md="4" className="mt-5">
-                <div className="product__item">
-                  <div className="product__img">
-                    <img
-                      src={products.image}
-                      alt="product-img"
-                      className="w-50"
-                    />
-                  </div>
+            <Col lg="12" className="text-center">
+              <h2>Best of the Best</h2>
+            </Col>
 
-                  <div className="product__content">
-                    <h5>
-                      <Link to={`/menu/${products.id}`}>{products.title}</Link>
-                    </h5>
-                    <div className="d-flex align-items-center justify-content-between">
-                      <span className="product__price">€{products.price}</span>
-                      <button className="addTOCart__btn">Add to Cart</button>
-                    </div>
-                  </div>
-                </div>
+            <Col lg="12">
+              <div className="food__category d-flex align-items-center justify-content-center gap-4">
+                <button
+                  className={`all__btn ${
+                    category === "ALL" ? "foodBtnActive" : ""
+                  }`}
+                  onClick={() => {
+                    setCategory("ALL");
+                  }}
+                >
+                  All
+                </button>
+                <button
+                  className={`d-flex align-items-center gap-2 ${
+                    category === "BURGER" ? "foodBtnActive" : ""
+                  }`}
+                  onClick={() => {
+                    setCategory("BURGER");
+                  }}
+                >
+                  <img src={pizza} alt="" />
+                  Burger
+                </button>
+                <button
+                  className={`d-flex align-items-center gap-2 ${
+                    category === "PIZZA" ? "foodBtnActive" : ""
+                  }`}
+                  onClick={() => {
+                    setCategory("PIZZA");
+                  }}
+                >
+                  <img src={burger} alt="" />
+                  Pizza
+                </button>
+              </div>
+            </Col>
+
+            {allProducts.map((item) => (
+              <Col lg="3" md="4" className="mt-5">
+                <ProductCard item={item} />
               </Col>
             ))}
           </Row>
