@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Product } from "../types";
 import { Container, Row, Col } from "reactstrap";
+import "../styles/food-menu.css";
 
 function FoodMenu() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -12,15 +13,21 @@ function FoodMenu() {
       .then((productsFromServer) => setProducts(productsFromServer));
   }, []);
   return (
-    <section className="products-container main-wrapper">
+    <section>
       <Container>
         <Row>
-          <Col>
+          <Col lg="12">
             {products.map((product) => (
-              <Link to={`/menu/${product.id}`}>
-                <img src={product.image} alt={product.title} />
-                <h5>{product.title}</h5>
-              </Link>
+              <div className="food__wrapper">
+                <div className="food__image">
+                  <img src={product.image} alt={product.title} width="25%" />
+                </div>
+                <div className="food__title">
+                  <h5>
+                    <Link to={`/menu/${product.id}`}>{product.title}</Link>
+                  </h5>
+                </div>
+              </div>
             ))}
           </Col>
         </Row>
