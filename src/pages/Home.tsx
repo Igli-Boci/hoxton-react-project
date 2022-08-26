@@ -10,21 +10,27 @@ import { useEffect, useState } from "react";
 
 import pizza from "../assets/images/pizza.png";
 import burger from "../assets/images/hamburger.png";
+import featureImg01 from "../assets/images/fast.png";
+import featureImg02 from "../assets/images/place.png";
+import featureImg03 from "../assets/images/service.png";
 import ProductCard from "../components/ProductCard/ProductCard";
 
 const featuresData = [
   {
     title: "Fast Delivery",
+    img: featureImg01,
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, fugit.",
   },
   {
     title: "Amazing Place",
+    img: featureImg02,
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, fugit.",
   },
   {
     title: "Excellent Service",
+    img: featureImg03,
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, fugit.",
   },
@@ -144,6 +150,7 @@ function Home() {
             {featuresData.map((item, index) => (
               <Col lg="4" md="4" key={index} className="mt-5">
                 <div className="feature__item text-center px-5 py-3">
+                  <img src={item.img} alt="feature-img" className="w-25 mb-3" />
                   <h5 className="fw-bold mb-3">{item.title}</h5>
                   <p>{item.description}</p>
                 </div>
