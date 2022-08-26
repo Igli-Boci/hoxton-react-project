@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Product } from "../types";
 import { Container, Row, Col } from "reactstrap";
+import "../styles/food-details.css";
 
 export function FoodDetails() {
   const [product, setProduct] = useState<Product | null>(null);
@@ -22,14 +23,14 @@ export function FoodDetails() {
       <Container>
         <Row>
           <Col>
-            <div className="product__item">
-              <div className="product__img">
-                <img src={product.image} alt={product.title} width="25%" />
+            <div className="product__detail">
+              <div className="productDetail__img">
+                <img src={product.image} alt={product.title} width="30%" />
               </div>
 
               <h5>{product.title}</h5>
-              <p>{product.desc}</p>
-              <span className="product__price">€{product.price}</span>
+              <p className="productDetail__desc">{product.desc}</p>
+              <span className="productDetail__price">€{product.price}</span>
               <button
                 className="addToBasket__btn"
                 onClick={() => {

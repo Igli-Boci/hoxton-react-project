@@ -3,3 +3,11 @@
     align-items: center;
     justify-content: space-between;
 }
+  
+.food__image {
+    width: 100%;
+  }
+
+.food__title {
+    text-align: end;
+} 

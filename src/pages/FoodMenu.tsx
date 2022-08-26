@@ -22,11 +22,10 @@ function FoodMenu() {
                 <div className="food__image">
                   <img src={product.image} alt={product.title} width="25%" />
                 </div>
-                <div className="food__title">
-                  <h5>
-                    <Link to={`/menu/${product.id}`}>{product.title}</Link>
-                  </h5>
-                </div>
+
+                <h5 className="food__title">
+                  <Link to={`/menu/${product.id}`}>{product.title}</Link>
+                </h5>
               </div>
             ))}
           </Col>

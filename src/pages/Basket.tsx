@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { BasketItem } from "../types";
-import { Container, Row, Col } from "reactstrap";
+import { Container, Row, Col, ListGroup } from "reactstrap";
 
 import "../styles/basket.css";
 
@@ -28,8 +28,8 @@ function Basket() {
             <h2>Your Basket</h2>
             <ul>
               {basket.map((item) => (
-                <li>
-                  <article className="basket-container__item">
+                <>
+                  <ListGroup>
                     <img
                       src={item.product.image}
                       alt={item.product.title}
@@ -68,7 +68,9 @@ function Basket() {
                               headers: {
                                 "Content-Type": "application/json",
                               },
-                              body: JSON.stringify({ quantity: newQuantity }),
+                              body: JSON.stringify({
+                                quantity: newQuantity,
+                              }),
                             });
 
                             setBasket(basketCopy);
@@ -83,6 +85,9 @@ function Basket() {
                         <option value="5">5</option>
                         <option value="6">6</option>
                         <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
                       </select>
                     </p>
 
@@ -90,8 +95,8 @@ function Basket() {
                       Item total: €
                       {(item.product.price * item.quantity).toFixed(2)}
                     </p>
-                  </article>
-                </li>
+                  </ListGroup>
+                </>
               ))}
             </ul>
 
